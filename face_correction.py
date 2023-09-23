@@ -34,4 +34,11 @@ def run():
         json.dump(dots_json, f, indent=4)
         f.close()
 
+    with open("./dots.txt", "w") as f:
+        f.close()
+    with open("./dots.txt", "w") as f:
+        for dot in dots:
+            f.write(f"({dot[0]}, {dot[1]})\n")
+        f.close()
+
 run()
