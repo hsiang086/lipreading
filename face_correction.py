@@ -30,7 +30,7 @@ def run():
         dots_json = {}
         for (idx, dot) in enumerate(dots):
             dots_json[str(idx)] = {}
-            dots_json[str(idx)]["latex"] = f"({dot[0]}, {dot[1]})"
+            dots_json[str(idx)]["latex"] = f"{dot[0]}, {dot[1]}"
         json.dump(dots_json, f, indent=4)
         f.close()
 
@@ -38,7 +38,7 @@ def run():
         f.close()
     with open("./dots.txt", "w") as f:
         for dot in dots:
-            f.write(f"({dot[0]}, {dot[1]})\n")
+            f.write(f"{dot[0]}, {dot[1]}\n")
         f.close()
 
 run()
