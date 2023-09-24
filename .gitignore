@@ -1,6 +1,10 @@
-/__pycache__
+venv
+
+*__pycache__*
 /data/ASRT_SpeechRecognition
 /data/audio
 *.DS_Store
 *.mp4
 .env
+dots.json
+dots.txt
