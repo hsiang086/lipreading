@@ -4,3 +4,5 @@ dlib
 json
 pytube
 numpy
+flask
+flask_cors

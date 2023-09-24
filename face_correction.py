@@ -24,21 +24,17 @@ def run():
     print(dots)
 
     # save dots <try it in desmos>
+    dots_json = {}
+    for (idx, dot) in enumerate(dots):
+        dots_json[str(idx)] = {}
+        dots_json[str(idx)]["latex"] = f"{dot[0]}, {dot[1]}"
     with open("./dots.json", "w") as f:
-        f.close()
-    with open("./dots.json", "w") as f:
-        dots_json = {}
-        for (idx, dot) in enumerate(dots):
-            dots_json[str(idx)] = {}
-            dots_json[str(idx)]["latex"] = f"{dot[0]}, {dot[1]}"
         json.dump(dots_json, f, indent=4)
-        f.close()
+
+    with open('static/dots.js', 'w') as f:
+        f.write(f'dots = `{str(dots_json)}`')
 
     with open("./dots.txt", "w") as f:
-        f.close()
-    with open("./dots.txt", "w") as f:
-        for dot in dots:
-            f.write(f"{dot[0]}, {dot[1]}\n")
-        f.close()
+        f.write('\n'.join([f"{dot[0]}, {dot[1]}" for dot in dots]))
 
 run()

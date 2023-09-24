@@ -6,12 +6,13 @@
     <body>
         <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
         <div id="calculator" style="width: 1200px; height: 800px;"></div>
+        <script type="text/javascript" src="static/dots.js"></script>
         <script>
             var elt = document.getElementById('calculator');
             var calculator = Desmos.GraphingCalculator(elt);
-            dots : {{ dots|safe }};
+            var dots = JSON.parse(dots);
             for (var i = 0; i < dots.length; i++) {
-                calculator.setExpression(dots[i]);
+                calculator.setExpression((dots[i]));
             };
         </script>
     </body>

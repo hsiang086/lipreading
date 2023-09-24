@@ -8,3 +8,4 @@ venv
 .env
 dots.json
 dots.txt
+static/dots.js
