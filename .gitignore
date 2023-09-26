@@ -4,8 +4,7 @@ venv
 /data/ASRT_SpeechRecognition
 /data/audio
 *.DS_Store
+*.txt
 *.mp4
-.env
-dots.json
-dots.txt
+*.json
 static/dots.js

@@ -19,7 +19,7 @@ DOTS = {
 
 # resize and face correction
 def run():
-    jaw = Detector(img_path="./data/image/lu.png") # <try photos>
+    jaw = Detector(img_path="./data/image/ryan.png") # <try photos>
     dots = jaw.relative_pos(parts=["jaw", "mouth"])
     print(dots)
 
@@ -31,8 +31,8 @@ def run():
     with open("./dots.json", "w") as f:
         json.dump(dots_json, f, indent=4)
 
-    with open('static/dots.js', 'w') as f:
-        f.write(f'dots = `{str(dots_json)}`')
+    # with open('static/dots.js', 'w') as f:
+    #     f.write(f'dots = `{str(dots_json)}`')
 
     with open("./dots.txt", "w") as f:
         f.write('\n'.join([f"{dot[0]}, {dot[1]}" for dot in dots]))

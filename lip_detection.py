@@ -5,6 +5,7 @@ import dlib
 import cv2
 
 MAX = 1e13
+FINDMAX = 0
 DOTS = {
 	"mouth": (48, 68),
 	"right_eyebrow": (17, 22),
@@ -54,6 +55,7 @@ class Detector:
 		return xp - xp_on_axis if is_x else yp - yp_on_axis	
 
 	def relative_pos(self, parts=["jaw", "mouth"]):
+		global FINDMAX
 		pos = []
 		x_axis = [self.get_dots(part="x-left")[0], self.get_dots(part="x-right")[0]]
 		y_axis = [self.get_dots(part="y-top")[0], self.get_dots(part="y-bottom")[0]]
@@ -64,5 +66,6 @@ class Detector:
 				theta = math.atan(m)
 				x = self.get_distance(theta=-theta, dot_on_axis=y_axis[0], dot=dot, is_x=True)
 				y = -1 * self.get_distance(theta=-theta, dot_on_axis=x_axis[0], dot=dot, is_x=False)
+				FINDMAX = max(FINDMAX, abs(x), abs(y))
 				pos.append((x, y))
-		return pos
+		return pos / FINDMAX
