@@ -1,5 +1,3 @@
 from get_data import *
 
-url = input('Enter the url of the video: ')
-get_mp3(url)
-split_mp3()
+get_mp4("https://www.youtube.com/watch?v=znJbiTVg6_M")

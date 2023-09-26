@@ -3,6 +3,7 @@ venv
 *__pycache__*
 /data/ASRT_SpeechRecognition
 /data/audio
+/data/video
 *.DS_Store
 *.txt
 *.mp4
