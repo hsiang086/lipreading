@@ -18,23 +18,21 @@ DOTS = {
 """
 
 # resize and face correction
-def run():
-    jaw = Detector(img_path="./data/image/ryan.png") # <try photos>
+def run(idx, imgarray=None):
+    jaw = Detector(imgarray=imgarray) # <try photos>
     dots = jaw.relative_pos(parts=["jaw", "mouth"])
     print(dots)
 
     # save dots <try it in desmos>
-    dots_json = {}
-    for (idx, dot) in enumerate(dots):
-        dots_json[str(idx)] = {}
-        dots_json[str(idx)]["latex"] = f"{dot[0]}, {dot[1]}"
-    with open("./dots.json", "w") as f:
-        json.dump(dots_json, f, indent=4)
+    # dots_json = {}
+    # for (idx, dot) in enumerate(dots):
+    #     dots_json[str(idx)] = {}
+    #     dots_json[str(idx)]["latex"] = f"{dot[0]}, {dot[1]}"
+    # with open("./dots.json", "w") as f:
+    #     json.dump(dots_json, f, indent=4)
 
     # with open('static/dots.js', 'w') as f:
     #     f.write(f'dots = `{str(dots_json)}`')
 
-    with open("./dots.txt", "w") as f:
+    with open(f"./data/dots/{idx}.txt", "w") as f:
         f.write('\n'.join([f"{dot[0]}, {dot[1]}" for dot in dots]))
-
-run()

@@ -1,9 +1,14 @@
 venv
 
 *__pycache__*
+/face-rec
+/zhiqi
 /data/ASRT_SpeechRecognition
+/data/subtitles/
 /data/audio
 /data/video
+/data/cut_videos
+/data/dots
 *.DS_Store
 *.txt
 *.mp4

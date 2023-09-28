@@ -21,11 +21,15 @@ DOTS = {
 }
 
 class Detector:
-	def __init__(self, img_path, model_path="./models/shape_predictor_68_face_landmarks.dat"):
-		self.image = imutils.resize(cv2.imread(img_path), width = 500)
+	def __init__(self, img_path=None, imgarray=None, model_path="./models/shape_predictor_68_face_landmarks.dat"):
 		self.detector = dlib.get_frontal_face_detector()
 		self.predictor = dlib.shape_predictor(model_path)
-		self.gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+		if imgarray is not None:
+			self.image = imutils.resize(imgarray, width = 500)
+			self.gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+		else:
+			self.image = imutils.resize(cv2.imread(img_path), width = 500)
+			self.gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
 		self.rects = self.detector(self.gray, 1)
 		self.dots = []
 
