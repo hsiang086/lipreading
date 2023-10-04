@@ -49,5 +49,3 @@ def main(path="./data/video/", video_id="znJbiTVg6_M"):
         if file.endswith(".mp4"):
             print(file)
             cut_video(path + file, f"sub.{video_id}")
-
-main()

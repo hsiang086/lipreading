@@ -13,5 +13,6 @@ venv
 *.txt
 *.mp4
 *.json
-.env
+# .env
+# test.py
 static/dots.js
