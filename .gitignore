@@ -2,7 +2,7 @@ venv
 
 *__pycache__*
 /face-rec
-/zhiqi
+/dataset
 /data/ASRT_SpeechRecognition
 /data/subtitles/
 /data/audio
@@ -13,4 +13,5 @@ venv
 *.txt
 *.mp4
 *.json
+.env
 static/dots.js
