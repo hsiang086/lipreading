@@ -1,27 +1,15 @@
-from flask import Flask, render_template as template
-from flask_cors import CORS
-import webbrowser
-from threading import Timer
-from face_correction import run
+from flask import Flask, render_template, Response, request, redirect, url_for, flash
+import test
 
 app = Flask(__name__)
-CORS(app)
-PORT = 5000
-OPEN_BROWSER = True
-
-# def get_dots():
-#     dots = json.load(open("./dots.json", "r"))
-#     return dots
 
 @app.route('/')
 def index():
-    return template('desmos.html')
+    return render_template('indexee.html')
 
-if __name__ == '__main__':
-    run()
-    if OPEN_BROWSER:
-        def open_browser():
-            webbrowser.open('http://127.0.0.1:%d' % PORT)
-        Timer(1, open_browser).start()
+@app.route('/video_feed')
+def video_feed():
+    return Response(test.run_on_flask("./data/video/znJbiTVg6_M.mp4"),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
-    app.run(host='0.0.0.0', port=PORT)
+# test.run("./data/video/znJbiTVg6_M.mp4")

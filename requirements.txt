@@ -1,7 +1,7 @@
 opencv-python
+tensorflow
 imutils
 dlib
-json
 pytube
 numpy
 flask
